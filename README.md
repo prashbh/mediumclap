@@ -1,22 +1,19 @@
-# Medium Clap Recreation
-by [Yonatan Doron](https://twitter.com/jodoron)
+# Medium Clap persisted using Firestore (NoSQL Cloud Database)
+
+Based on https://github.com/JonathanDn/mediumclap
+
+by [Prashant Bhargava](https://www.linkedin.com/in/prashantb16/)
 
 ![MIT License](https://badgen.net/badge/license/MIT/blue "MIT License")
 
-#### Demo
-![Medium Clap reverse engnieered gif](https://media.giphy.com/media/vlIRUOU5a6oboTAeV4/giphy.gif)
+## Configuring & Instructions
 
-* [JSFiddle Demo](https://jsfiddle.net/urft14zr/425/)
+### 1. Running the demo
 
-#### Description
-* This is the source code from my article [How I Implemented the Medium Clap from Scratch!](https://medium.com/hackernoon/how-i-implemented-the-medium-clap-from-scratch-4a16ac90ad3b)
-* Reversed Engineer by me from the famous medium clap micro interaction 
-* code is completely open source unde MIT license
-* I tried to recreate it by looking, researching and conducting experiments by trial and error.
----
-👨‍💻 Follow me on [Twitter](https://twitter.com/jodoron).
+1.1 Set up Firestore project
+1.2 Update config
 
-### Donation
-If this project helped you reduce development time, you can buy me a cup of coffee :)
+### 2. Securing Firestore
+2.1 Adding Firestore rules
+2.2 Securing API keys
 
-* Paypal - yonidn7@gmail.com
