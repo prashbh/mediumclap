@@ -17,7 +17,13 @@ by [Prashant Bhargava](https://www.linkedin.com/in/prashantb16/)
 ### 1. Running the demo
 
 **1.1 Set up Firestore project**
+
+Create a new FireStore project.
+
 **1.2 Update config**
+Go to your Firestore Project Settings > General.
+Copy the FirebaseConfig and paste the values in `medium_clap.js`.
+Open `medium_clap.html` using localhost.
 
 ### 2. Securing Firestore
 **2.1 Adding Firestore rules**
