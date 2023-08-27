@@ -1,5 +1,9 @@
 <html>
 <head>
+<!-- Import the functions you need from the firebase SDKs you need -->
+<script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth-compat.js"></script>
 <script src="./medium_clap.js"></script>
 <link rel="stylesheet" href="./assets/medium_clap.css" >
 <link rel="stylesheet" href="./assets/font-awesome/css/fontawesome.css">
@@ -11,8 +15,8 @@
 <div class="canvas">
     <div id="totalCounter" class="total-counter"></div>
 
-    <div id="clap" class="clap-container">
-        <i class="clap-icon fa fa-hand-paper-o"></i>
+    <div id="clap" onmouseover="clapHovered()" onmouseup="clapReleased('clapId-1')" onmousedown="clapPressed()" class="clap-container">
+        <i class="clap-icon fa-solid fa-hands-clapping"></i>
     </div>
     
     <div id="clicker" class="click-counter">
