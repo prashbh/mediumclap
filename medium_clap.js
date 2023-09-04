@@ -12,7 +12,32 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 const collection = db.collection("claps")
+
+// Setup authentication
+var userid;
+function authenticate() {
+  return auth.signInAnonymously()
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    console.log("catch", errorCode, errorMessage)
+  });
+}
+
+auth.onAuthStateChanged((user) => {
+  console.log("onAuthStateChanged:", user)
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/v8/firebase.User
+    userid = user.uid;
+  } else {
+    // User is signed out
+    userid = undefined
+  }
+});
 
 function getClaps(id) {
   collection.doc(id).get().then((doc) => {
@@ -84,9 +109,15 @@ function clapReleased(clapId) {
 }
 
 function clapPressed() {
+  if(userid === undefined) {
+    authenticate().then(() => {
+        clap()
+    })
+  } else {
   clap()
   interval = setInterval(clap, 100);
   }
+}
 
 function clap() {
   const clap = document.getElementById('clap');

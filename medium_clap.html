@@ -83,7 +83,9 @@
 </body>
 <script>
 window.addEventListener("load", function(){
-    getClaps("clapId-1");
+    authenticate().then(() => {
+  	    getClaps("clapId-1");
+    })
 });
 </script>
 </html>
