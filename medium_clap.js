@@ -14,6 +14,18 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collection = db.collection("claps")
 
+function getClaps(id) {
+  collection.doc(id).get().then((doc) => {
+    totalCount = 0
+    console.log(doc)
+    if (doc.exists) {
+      totalCount = doc.data().value  
+    }
+    document.getElementById('totalCounter').innerText = totalCount;
+  })
+  
+}
+
 // Adding claps
 function saveClaps(id, count) {
   collection.doc(id).set({
@@ -31,7 +43,7 @@ function saveClaps(id, count) {
 
 // counter vars
 let clapCounter = 0;
-let totalCount = 127;
+let totalCount = 0;
 const minDeg = 1;
 const maxDeg = 72;
 const particlesClasses = [
@@ -102,7 +114,8 @@ function showFinalClapCount() {
   const totalClickCounter = document.getElementById('totalCounter');
   
   clickCounter.children[0].innerText = '+' + clapCounter;
-  totalClickCounter.innerText = totalCount + clapCounter;
+  totalCount = totalCount + clapCounter;
+  totalClickCounter.innerText = totalCount;
   
   if (clickCounter.classList.contains('first-active')) {
     runAnimationCycle(clickCounter, 'active');
